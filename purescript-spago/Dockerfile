@@ -9,7 +9,8 @@ ARG PURESCRIPT_VERSION="0.15.7"
 WORKDIR /root
 
 # Install stack, if the architecture is not amd64
-RUN if [ "$(uname -m)" != "x86_64" ]; then curl -sSL https://get.haskellstack.org/ | sh; fi
+RUN if [ "$(uname -m)" != "x86_64" ]; then curl -sSL https://get.haskellstack.org/ | sh; \
+    else stack setup; fi
 
 # Compile purescript from source
 RUN stack update && stack unpack purescript-${PURESCRIPT_VERSION}
@@ -24,7 +25,9 @@ FROM haskell:${GHC_VERSION} as spago-builder
 ARG SPAGO_VERSION="0.20.9"
 
 # install stack if the architecture is not amd64
-RUN if [ "$(uname -m)" != "x86_64" ]; then curl -sSL https://get.haskellstack.org/ | sh; fi
+# else, run stack setup
+RUN if [ "$(uname -m)" != "x86_64" ]; then curl -sSL https://get.haskellstack.org/ | sh; \
+    else stack setup; fi
 
 # spago requires LLVM and libnuma i think
 RUN apt-get update && apt-get install -y \
