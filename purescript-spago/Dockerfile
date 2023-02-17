@@ -1,5 +1,8 @@
 # Purescript 0.15.7 uses GHC 9.2.4 - but I think stack installs ghc itself...
 ARG GHC_VERSION="9.2.4"
+# stack, on the other hand, uses LTS-18.24 ~ GHC 8.10.7
+# https://github.com/purescript/spago/blob/master/stack.yaml
+ARG GHC_VERSION_STACK="8.10.7"
 
 # ========================== #
 # Build purescript from source
@@ -21,7 +24,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 
 # ========================== #
 # Build spago from source
-FROM haskell:${GHC_VERSION} as spago-builder
+FROM haskell:${GHC_VERSION_STACK} as spago-builder
 ARG SPAGO_VERSION="0.20.9"
 
 # install stack if the architecture is not amd64
