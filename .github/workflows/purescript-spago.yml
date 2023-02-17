@@ -30,7 +30,7 @@ jobs:
           file: purescript-spago/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ inputs.repo }}/purescript-spago:latest
-            ghcr.io/${{ inputs.repo }}/purescript-spago:$(date +'%Y-%m-%d')
+            ghcr.io/${{ github.repository }}/purescript-spago:latest
+            ghcr.io/${{ github.repository }}/purescript-spago:$(date +'%Y-%m-%d')
           cache-from: type=gha,scope=purescript-spago
           cache-to: type=gha,mode=max,scope=purescript-spago
