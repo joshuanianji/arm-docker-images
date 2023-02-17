@@ -4,7 +4,7 @@ The current official devcontainer for the Julia language [does not support ARM-b
 
 For my intro to ML class, I would rather have a self contained environment to use in my M1 mac. It has quite a few dependencies, so I decided to create a devcontainer for it.
 
-## Packages
+## Contents
 
 - Julia 1.8 (installed by [jill.py](https://github.com/joshuanianji/cmput267/blob/main/.devcontainer/Dockerfile))
 - Python 3.10

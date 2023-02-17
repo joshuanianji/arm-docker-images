@@ -8,6 +8,11 @@ Similarly, `spago`, the purescript package manager, is not available for arm-bas
 qemu-x86_64: Could not open '/lib64/ld-linux-x86-64.so.2': No such file or directory
 ```
 
+## Contents 
+
+- Purescript v0.15.7
+- Spago v0.20.9
+
 ## Using this image
 
 You can either:
