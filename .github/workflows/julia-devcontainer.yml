@@ -1,20 +1,25 @@
-name: Purescript-Spago - Publish
+name: Julia Devcontainer - Publish
 
 on:
   push:
     branches:
       - main
     paths:
-      - purescript-spago/Dockerfile
-      - .github/workflows/purescript-spago.yml
+      - julia-devcontainer/Dockerfile
+      - .github/workflows/julia-devcontainer.yml
+
+permissions:
+  packages: write
+  contents: read
 
 jobs:
-  build:
+  build-push:
+    name: Build and Push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
       - name: Setup Buildx
         uses: "./.github/actions/setup-buildx"
         with:
@@ -29,15 +34,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # I don't need to keep track of previous versions, so I just use latest
       - name: Build and push
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v3
         with:
-          context: purescript-spago
+          context: julia-devcontainer
           platforms: linux/arm64,linux/amd64
-          file: purescript-spago/Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/purescript-spago:latest
-            ghcr.io/${{ github.repository }}/purescript-spago:${{ github.sha }}
-          cache-from: type=gha,scope=purescript-spago
-          cache-to: type=gha,mode=max,scope=purescript-spago
+            ghcr.io/${{ github.repository }}/julia-devcontainer:latest
+            ghcr.io/${{ github.repository }}/julia-devcontainer:${{ github.sha }}
+          cache-from: type=gha,scope=julia-devcontainer
+          cache-to: type=gha,mode=max,scope=julia-devcontainer

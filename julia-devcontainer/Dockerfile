@@ -16,17 +16,12 @@ RUN yes | sudo cpan -i App::cpanminus \
     && sudo cpanm Log::Log4perl \
     && sudo cpanm Log::Dispatch::File
 
-# install requirements.txt
-COPY requirements.txt /tmp/pip-tmp/
-RUN pip --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-    && rm -rf /tmp/pip-tmp
-
 # install julia by JILL.py
 ENV PATH="${PATH}:/root/.local/bin"
 RUN export DEBIAN_FRONTEND=noninteractive \
     && pip install jill --user -U \
     && jill install 1.8 --confirm
 
-# install Pluto@0.15 via Julia
+# install Pluto@0.19 via Julia
 # https://discourse.julialang.org/t/how-to-install-a-specific-version-of-a-package-with-pkg-add/29242/9
 RUN julia -e "import Pkg; Pkg.add(name=\"Pluto\", version=\"0.19\")"
