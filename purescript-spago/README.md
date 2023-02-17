@@ -1,6 +1,6 @@
 # Purescript & Spago
 
-Purescript prebuild binaries [only contains `x86-64`](https://github.com/purescript/purescript/blob/master/INSTALL.md#official-prebuilt-binaries) versions, so to get an arm-based version, you need to build it yourself.
+Purescript prebuild binaries [only contain `x86-64`](https://github.com/purescript/purescript/blob/master/INSTALL.md#official-prebuilt-binaries) versions, so to get an arm-based version, you need to build it yourself.
 
 Similarly, `spago`, the purescript package manager, is not available for arm-based architectures. Installing it via `npm` will fail with the following:
 
