@@ -36,8 +36,6 @@ jobs:
           platforms: linux/arm64,linux/amd64
           file: purescript-spago/Dockerfile
           push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/purescript-spago:latest
-            ghcr.io/${{ github.repository }}/purescript-spago:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}/purescript-spago:latest
           cache-from: type=gha,scope=purescript-spago
           cache-to: type=gha,mode=max,scope=purescript-spago

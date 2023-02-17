@@ -41,8 +41,6 @@ jobs:
           context: julia-devcontainer
           platforms: linux/arm64,linux/amd64
           push: true
-          tags: |
-            ghcr.io/${{ github.repository }}/julia-devcontainer:latest
-            ghcr.io/${{ github.repository }}/julia-devcontainer:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}/julia-devcontainer:latest
           cache-from: type=gha,scope=julia-devcontainer
           cache-to: type=gha,mode=max,scope=julia-devcontainer
