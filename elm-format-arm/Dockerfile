@@ -1,4 +1,4 @@
-FROM haskell:9.2.5
+FROM haskell:9.2.5 AS build
 
 RUN git clone https://github.com/avh4/elm-format
 WORKDIR /elm-format
@@ -10,3 +10,5 @@ RUN ./dev/build.sh -- dependencies
 RUN ./dev/build.sh -- build
 
 # The final binary will be ./_build/elm-format
+FROM scratch 
+COPY --from=build /elm-format/_build/elm-format /dist/elm-format
