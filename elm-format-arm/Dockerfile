@@ -4,6 +4,6 @@ RUN git clone https://github.com/avh4/elm-format
 WORKDIR /elm-format
 
 # Build elm-format
-RUN ./build.sh -- build
+RUN ./dev/build.sh -- build
 
 # The final binary will be ./_build/elm-format
