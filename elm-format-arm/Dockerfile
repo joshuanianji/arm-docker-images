@@ -1,4 +1,4 @@
-FROM haskell:9.0.2
+FROM haskell:9.2.5
 
 RUN git clone https://github.com/avh4/elm-format
 WORKDIR /elm-format
