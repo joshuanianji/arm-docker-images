@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - docker-x11-bridge/Dockerfile
+      - docker-x11-bridge/*
       - .github/workflows/docker-x11-bridge.yml
 
 permissions:
