@@ -1,4 +1,10 @@
+FROM node:alpine as uglify-js
+
+# uglifyjs executable will be in /usr/local/bin/uglifyjs
+RUN npm install uglify-js -g
+
 FROM alpine:3.17
+COPY --from=uglify-js /usr/local/bin/uglifyjs /usr/local/bin/uglifyjs
 RUN apk add bash git py3-cairo py3-xdg su-exec xhost xpra
 RUN mkdir /tmp/xpra-html5 && cd /tmp/xpra-html5 && git clone https://github.com/Xpra-org/xpra-html5 && cd xpra-html5 && ./setup.py install && cd / && rm -rf /tmp/xpra-html5
 
