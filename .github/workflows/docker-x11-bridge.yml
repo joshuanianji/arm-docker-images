@@ -1,0 +1,46 @@
+name: Docker x11 Bridge - Publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - docker-x11-bridge/Dockerfile
+      - .github/workflows/docker-x11-bridge.yml
+
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  build-push:
+    name: Build and Push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Buildx
+        uses: "./.github/actions/setup-buildx"
+        with:
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_user: ${{ secrets.SSH_USER }}
+          ssh_ip: ${{ secrets.SSH_IP }}
+
+      - name: Login to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # I don't need to keep track of previous versions, so I just use latest
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: docker-x11-bridge
+          platforms: linux/arm64,linux/amd64
+          push: true
+          tags: ghcr.io/${{ github.repository }}/docker-x11-bridge:latest
+          cache-from: type=gha,scope=docker-x11-bridge
+          cache-to: type=gha,mode=max,scope=docker-x11-bridge
