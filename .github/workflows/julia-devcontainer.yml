@@ -7,6 +7,11 @@ on:
     paths:
       - julia-devcontainer/Dockerfile
       - .github/workflows/julia-devcontainer.yml
+  # rebuild every week
+  # https://crontab.guru/every-week
+  schedule:
+    - cron: '0 0 * * 0'
+
 
 permissions:
   packages: write
