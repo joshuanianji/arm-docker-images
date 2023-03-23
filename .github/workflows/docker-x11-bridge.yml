@@ -7,6 +7,7 @@ on:
     paths:
       - docker-x11-bridge/*
       - .github/workflows/docker-x11-bridge.yml
+  workflow_dispatch:
 
 permissions:
   packages: write
