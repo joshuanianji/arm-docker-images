@@ -12,30 +12,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      
       - name: Setup Buildx
         uses: "./.github/actions/setup-buildx"
         with:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh_user: ${{ secrets.SSH_USER }}
           ssh_ip: ${{ secrets.SSH_IP }}
-
-      - name: Login to GHCR
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: purescript-spago
-          platforms: linux/arm64,linux/amd64
-          file: purescript-spago/Dockerfile
-          push: true
-          tags: ghcr.io/${{ github.repository }}/purescript-spago:latest
-          cache-from: type=gha,scope=purescript-spago
-          cache-to: type=gha,mode=max,scope=purescript-spago
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: purescript-spago
