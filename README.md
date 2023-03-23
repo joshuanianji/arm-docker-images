@@ -5,3 +5,9 @@ Support for native arm-based Docker images remains a bit spotty, especially sinc
 This repository contains ARM-Based Docker images for some languages and software that do not currently support arm, mainly for personal use. I build the arm images on Github Actions via [Buildx Remote Builders](https://www.docker.com/blog/speed-up-building-with-docker-buildx-and-graviton2-ec2/#), connected to my [Oracle Free-tier VM](https://www.oracle.com/ca-en/cloud/free/).
 
 My hope is that this repo becomes obsolete as soon as possible.
+
+## Making a new image 
+
+```bash
+python scripts/new.py
+```
