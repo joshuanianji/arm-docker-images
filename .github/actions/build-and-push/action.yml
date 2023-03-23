@@ -14,7 +14,7 @@ inputs:
   ssh_ip:
     description: "The IP to use to connect to the builder"
     required: true
-  GTIHUB_TOKEN:
+  GITHUB_TOKEN:
     description: "The token to use to connect to the builder"
     required: true
   name:
