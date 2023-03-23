@@ -1,0 +1,46 @@
+name: llama-cpp - Publish
+
+# this is quite a bit different from the other workflows, since we need a matrix build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - containers/llama-cpp/Dockerfile
+      - .github/workflows/llama-cpp.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config:
+          - { tag: "light", dockerfile: "Dockerfile.main" }
+          - { tag: "full", dockerfile: "Dockerfile.full" }
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Buildx
+        uses: "./.github/actions/setup-buildx"
+        with:
+          ssh_private_key: ${{ inputs.SSH_PRIVATE_KEY }}
+          ssh_user: ${{ inputs.SSH_USER }}
+          ssh_ip: ${{ inputs.SSH_IP }}
+
+      - name: Login to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ inputs.GITHUB_TOKEN }}
+      
+      - name: Build and push Docker image (tagged)
+        uses: docker/build-push-action@v4
+        with:
+          file: containers/llama-cpp/${{ matrix.config.dockerfile }}
+          context: containers/llama-cpp
+          platforms: linux/arm64,linux/amd64
+          push: true
+          tags: ghcr.io/${{ github.repository }}/llama.cpp:${{ matrix.config.tag }}

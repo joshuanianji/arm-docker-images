@@ -1,0 +1,18 @@
+ARG UBUNTU_VERSION=22.04
+# https://github.com/ggerganov/llama.cpp/blob/master/.devops/full.Dockerfile
+
+FROM ubuntu:$UBUNTU_VERSION as build
+WORKDIR /
+
+RUN apt-get update && \
+    apt-get install -y build-essential python3 python3-pip git
+
+RUN pip install --upgrade pip setuptools wheel \
+    && pip install numpy requests sentencepiece torch tqdm
+
+RUN git clone --depth=1 https://github.com/ggerganov/llama.cpp.git
+WORKDIR /llama.cpp
+
+RUN make
+
+ENTRYPOINT ["/llama.cpp/.devops/tools.sh"]
