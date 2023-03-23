@@ -42,9 +42,9 @@ runs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: ${{ input.name }}
+        context: ${{ inputs.name }}
         platforms: linux/arm64,linux/amd64
         push: true
-        tags: ghcr.io/${{ github.repository }}/${{ input.name }}:latest
-        cache-from: type=gha,scope=${{ input.name }}
-        cache-to: type=gha,mode=max,scope=${{ input.name }}
+        tags: ghcr.io/${{ github.repository }}/${{ inputs.name }}:latest
+        cache-from: type=gha,scope=${{ inputs.name }}
+        cache-to: type=gha,mode=max,scope=${{ inputs.name }}
