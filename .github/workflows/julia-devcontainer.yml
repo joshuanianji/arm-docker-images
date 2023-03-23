@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - julia-devcontainer/Dockerfile
+      - containers/julia-devcontainer/Dockerfile
       - .github/workflows/julia-devcontainer.yml
   # rebuild every week
   # https://crontab.guru/every-week

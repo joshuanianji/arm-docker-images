@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - $NAME/Dockerfile
+      - containers/$NAME/Dockerfile
       - .github/workflows/$NAME.yml
 
 jobs:

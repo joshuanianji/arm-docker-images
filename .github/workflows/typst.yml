@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - typst/*
+      - containers/typst/*
       - .github/workflows/typst.yml
   workflow_dispatch:
 

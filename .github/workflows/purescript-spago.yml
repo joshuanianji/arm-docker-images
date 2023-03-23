@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - purescript-spago/Dockerfile
+      - containers/purescript-spago/Dockerfile
       - .github/workflows/purescript-spago.yml
   workflow_dispatch:
 

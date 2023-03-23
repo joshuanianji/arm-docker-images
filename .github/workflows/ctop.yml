@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - ctop/Dockerfile
+      - containers/ctop/Dockerfile
       - .github/workflows/ctop.yml
   workflow_dispatch:
 
