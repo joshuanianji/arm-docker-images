@@ -11,3 +11,7 @@ My hope is that this repo becomes obsolete as soon as possible.
 ```bash
 python scripts/new.py
 ```
+
+## Success Stories
+
+- [Typst](https://github.com/typst/typst) - the Typst devcontainer feature supports ARM now: see [michidk/devcontainers-features#5](https://github.com/michidk/devcontainers-features/pull/5)
