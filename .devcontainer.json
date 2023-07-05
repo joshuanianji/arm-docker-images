@@ -14,8 +14,8 @@
         "vscode": {
             "extensions": [
                 "ms-azuretools.vscode-docker",
-                "cschleiden.vscode-github-actions",
-                "GitHub.copilot"
+                "GitHub.copilot",
+                "github.vscode-github-actions"
             ]
         }
     }
