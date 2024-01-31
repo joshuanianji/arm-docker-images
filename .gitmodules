@@ -1,0 +1,3 @@
+[submodule "images/mariposa/mariposa"]
+	path = images/mariposa/mariposa
+	url = https://github.com/ambulancja/mariposa
