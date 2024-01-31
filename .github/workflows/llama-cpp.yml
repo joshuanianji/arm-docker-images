@@ -40,8 +40,8 @@ jobs:
       - name: Build and push Docker image (tagged)
         uses: docker/build-push-action@v5
         with:
-          file: containers/llama-cpp/${{ matrix.config.dockerfile }}
-          context: containers/llama-cpp
+          file: images/llama-cpp/${{ matrix.config.dockerfile }}
+          context: images/llama-cpp
           platforms: linux/arm64,linux/amd64
           push: true
           tags: ghcr.io/${{ github.repository }}/llama.cpp:${{ matrix.config.tag }}
