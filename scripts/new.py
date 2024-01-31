@@ -12,10 +12,10 @@ def main():
         print(f"Name: {name}")
 
     # run `mkdir name`
-    os.system(f"mkdir containers/{name}")
-    os.system(f"touch containers/{name}/Dockerfile")
-    os.system(f"touch containers/{name}/README.md")
-    os.system(f"echo '# {name}' >> containers/{name}/README.md")
+    os.system(f"mkdir images/{name}")
+    os.system(f"touch images/{name}/Dockerfile")
+    os.system(f"touch images/{name}/README.md")
+    os.system(f"echo '# {name}' >> images/{name}/README.md")
     os.system(f"touch .github/workflows/{name}.yml")
 
     with open(f"./scripts/template.yml", "r") as f:
