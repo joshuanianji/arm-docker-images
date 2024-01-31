@@ -18,3 +18,4 @@ Images that I don't care about anymore
 
 - [Docker X11 Bridge](./archive/docker-x11-bridge)
 - [Julia Devcontainer](./archive/julia-devcontainer/)
+- [Llama CPP](./archive/llama-cpp/)
