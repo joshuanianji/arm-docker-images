@@ -1,6 +1,6 @@
 # Arm Docker Images
 
-Support for native arm-based Docker images remains a bit spotty, especially since Mac M1 runners on Github Actions costs money
+Support for native arm-based Docker images remains a bit spotty, especially since Mac M1 runners on Github Actions costs money. This repo holds a collection of docker image with support for ARM, with help from my [Oracle Free-tier VM](https://www.oracle.com/ca-en/cloud/free/)
 
 ## Making a new image 
 
