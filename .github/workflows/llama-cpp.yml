@@ -9,6 +9,7 @@ on:
     paths:
       - images/llama-cpp/Dockerfile
       - .github/workflows/llama-cpp.yml
+  workflow_dispatch:
 
 jobs:
   build:

@@ -7,6 +7,7 @@ on:
     paths:
       - images/$NAME/Dockerfile
       - .github/workflows/$NAME.yml
+  workflow_dispatch:
 
 jobs:
   build:
