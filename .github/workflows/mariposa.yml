@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - containers/mariposa/Dockerfile
+      - images/mariposa/Dockerfile
       - .github/workflows/mariposa.yml
 
 jobs:
