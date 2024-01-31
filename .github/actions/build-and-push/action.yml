@@ -42,7 +42,7 @@ runs:
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
-        context: containers/${{ inputs.name }}
+        context: images/${{ inputs.name }}
         platforms: linux/arm64,linux/amd64
         push: true
         tags: ghcr.io/${{ github.repository }}/${{ inputs.name }}:latest
