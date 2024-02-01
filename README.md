@@ -2,6 +2,12 @@
 
 Support for native arm-based Docker images remains a bit spotty, especially since Mac M1 runners on Github Actions costs money. This repo holds a collection of docker image with support for ARM, with help from my [Oracle Free-tier VM](https://www.oracle.com/ca-en/cloud/free/)
 
+## Available Images
+
+- [ctop](./images/ctop/) - Top-like interface for container metrics
+- [mariposa](./images/mariposa/) - Toy language with time travel
+- [purescript-spago](./images/purescript-spago/) - Purescript and Spago (Warning: might be old)
+
 ## Making a new image 
 
 ```bash
