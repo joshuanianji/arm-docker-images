@@ -6,3 +6,5 @@ COPY . .
 WORKDIR /build/mariposa
 RUN make build
 RUN mv ./mariposa /usr/local/bin/mariposa
+
+ENTRYPOINT [ "mariposa" ]
