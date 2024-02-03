@@ -1,0 +1,29 @@
+name: aria2c-with-webui - Publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - images/aria2c-with-webui/Dockerfile
+      - .github/workflows/aria2c-with-webui.yml
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      
+      - name: Build and Push
+        uses: "./.github/actions/build-and-push"
+        with:
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_user: ${{ secrets.SSH_USER }}
+          ssh_ip: ${{ secrets.SSH_IP }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: aria2c-with-webui
+
