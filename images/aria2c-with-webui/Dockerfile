@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3
 
 LABEL maintainer "Dean Camera <http://www.fourwalledcubicle.com>"
 
@@ -7,10 +7,10 @@ RUN mkdir -p /conf && \
     mkdir -p /data && \
     apk add --no-cache tzdata bash aria2 darkhttpd s6
 
-RUN	apk add --no-cache --virtual .install-deps curl unzip && \
+RUN	apk add --no-cache --virtual .install-deps curl unzip jq && \
     mkdir -p /aria2-ng && \
-    curl -o /aria2-ng.zip -L $(curl -sX GET "https://api.github.com/repos/mayswind/AriaNg/releases/latest" | jq -r '.assets[0].browser_download_url') && \
-    unzip /aria2-ng.zip -d /aria2-ng \
+    curl -o ./aria2-ng.zip -L $(curl -sX GET "https://api.github.com/repos/mayswind/AriaNg/releases" | jq -r '.[0].assets[0].browser_download_url') && \
+    unzip ./aria2-ng.zip -d /aria2-ng \
     && rm /aria2-ng.zip \
     && apk del .install-deps
 
