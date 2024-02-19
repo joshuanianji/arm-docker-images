@@ -7,6 +7,7 @@ Support for native arm-based Docker images remains a bit spotty, especially sinc
 - [ctop](./images/ctop/) - Top-like interface for container metrics
 - [mariposa](./images/mariposa/) - Toy language with time travel
 - [purescript-spago](./images/purescript-spago/) - Purescript and Spago (Warning: might be old)
+- [aria2c-with-webui](./images/aria2c-with-webui) - Aria2 with a frontend, based off of [abcminiuser/docker-aria2-with-webui](https://github.com/abcminiuser/docker-aria2-with-webui)
 
 ## Making a new image 
 
