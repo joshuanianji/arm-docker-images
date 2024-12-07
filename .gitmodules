@@ -1,3 +1,6 @@
 [submodule "images/mariposa/mariposa"]
 	path = images/mariposa/mariposa
 	url = https://github.com/ambulancja/mariposa
+[submodule "images/docker-postgres-upgrade/docker-postgres-upgrade"]
+	path = images/docker-postgres-upgrade/docker-postgres-upgrade
+	url = https://github.com/tianon/docker-postgres-upgrade
