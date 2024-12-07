@@ -39,7 +39,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # I don't need to keep track of previous versions, so I just use latest
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
