@@ -7,6 +7,7 @@ on:
     paths:
       - images/docker-postgres-upgrade/**
       - .github/workflows/docker-postgres-upgrade.yml
+      - .github/actions/setup-buildx/**
   workflow_dispatch:
 
 jobs:
