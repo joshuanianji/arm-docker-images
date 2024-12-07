@@ -43,7 +43,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: images/docker-postgres-upgrade
+          context: images/docker-postgres-upgrade/docker-postgres-upgrade/${{ matrix.sub-image }}
           platforms: linux/arm64,linux/amd64
           push: true
           tags: ghcr.io/${{ github.repository }}/docker-postgres-upgrade:${{ matrix.sub-image }}
