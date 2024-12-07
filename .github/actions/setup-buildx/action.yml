@@ -35,6 +35,10 @@ runs:
         SSH_USER: ${{ inputs.SSH_USER }}
         SSH_PRIVATE_KEY: ${{ inputs.SSH_PRIVATE_KEY }}
         SSH_IP: ${{ inputs.SSH_IP }}
+    
+    - name: Check if the builder is reachable
+      shell: bash
+      run: docker -H ssh://arm-vm info
 
     # Creating our own builder lets us have more control over the build process
     # we are making the actions runner natively build the amd image, but SSH into our arm VM for the arm image
