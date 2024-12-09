@@ -40,7 +40,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: images/docker-postgres-upgrade/docker-postgres-upgrade/${{ matrix.sub-image }}
           platforms: linux/arm64,linux/amd64
